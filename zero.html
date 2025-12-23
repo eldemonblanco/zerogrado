@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <meta name="description" content="Extinto – El futuro ya llegó... y se apagó. Cyber experience 2025."/>
-  <title>ZEROGRADO |</title>
+  <meta name="description" content="ZEROGRADO – Especialistas en recarga, mantenimiento e inspección de extintores. Seguridad contra incendios 2025."/>
+  <title>ZEROGRADO | Recarga de Extintores</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
     .whatsapp-fixed{
       position:fixed;bottom:25px;right:25px;background:var(--accent);color:white;
       width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      font-size:2.8rem;box-shadow:999;box-shadow:0 0 40px var(--accent);animation:pulse-red 2s infinite;
+      font-size:2.8rem;box-shadow:0 0 40px var(--accent);animation:pulse-red 2s infinite;
     }
     .hero{
       min-height:100vh;background:linear-gradient(135deg,#000,#0d001a);
@@ -74,6 +74,13 @@
       background:linear-gradient(transparent,var(--main,0.4),transparent);
       animation:scan 7s linear infinite;pointer-events:none;z-index:2;
     }
+    section{padding:100px 5%;position:relative;}
+    .section-title{font-size:clamp(3rem,8vw,5rem);text-align:center;margin-bottom:60px;color:var(--main);text-shadow:0 0 30px var(--main);}
+    .services-grid, .types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;}
+    .card{background:rgba(255,0,0,0.1);border:2px solid var(--main);border-radius:15px;padding:30px;text-align:center;transition:0.5s;box-shadow:0 0 20px rgba(255,0,0,0.3);}
+    .card:hover{transform:translateY(-15px);box-shadow:0 0 50px var(--accent);}
+    .card img{max-width:100%;border-radius:10px;margin-bottom:20px;box-shadow:0 0 20px var(--main);}
+    .card h3{font-size:2rem;margin:20px 0;color:var(--accent);}
     footer{
       background:#000;padding:50px 20px 70px;text-align:center;color:#555;
       border-top:1px solid #222;position:relative;z-index:10;
@@ -102,7 +109,7 @@
 </head>
 <body>
   <!-- WhatsApp Flotante -->
-  <a href="https://wa.me/573022771677" class="whatsapp-fixed" target="_blank">
+  <a href="https://wa.me/573007568085" class="whatsapp-fixed" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
   <header>
@@ -112,9 +119,8 @@
     </div>
     <nav>
       <a href="#inicio">Inicio</a>
-      <a href="#acceso">Servicios</a>
-      <a href="#cyber">Clientes</a>
-      <a href="#drop">Tienda</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#tipos">Tipos de Extintores</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
@@ -122,14 +128,66 @@
     <div id="particles-js"></div>
     <div class="scanline"></div>
     <div style="position:relative;z-index:10;">
-      <h1>RECARGA</h1>
-      <p><br></p>
+      <h1>RECARGA Y MANTENIMIENTO DE EXTINTORES</h1>
+      <p>Seguridad contra incendios de alto nivel</p>
       <div class="hero-buttons">
-        <a href="#acceso" class="btn-hero">Mas informacion!</a>
-        <a href="https://wa.me/573022771677" target="_blank" class="btn-hero whatsapp">Whatsapp directo</a>
+        <a href="#servicios" class="btn-hero">Conoce nuestros servicios</a>
+        <a href="https://wa.me/573007568085" target="_blank" class="btn-hero whatsapp">Whatsapp directo</a>
       </div>
     </div>
   </section>
+
+  <!-- Nuestros Servicios -->
+  <section id="servicios">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p style="text-align:center;font-size:1.6rem;max-width:900px;margin:0 auto 60px;">En ZEROGRADO somos especialistas en <strong>recarga de extintores</strong>, <strong>mantenimiento preventivo</strong>, inspección anual y venta de equipos nuevos. Cumplimos con todas las normas de seguridad para proteger tu hogar, empresa o industria.</p>
+    <div class="services-grid">
+      <div class="card">
+        <img src="https://www.fleximecan.com/wp-content/uploads/2025/05/La-recarga-de-extintores-y-su-mantenimiento.jpg" alt="Técnico recargando extintor">
+        <h3>Recarga Profesional</h3>
+        <p>Recargamos todo tipo de extintores con agentes de calidad certificada.</p>
+      </div>
+      <div class="card">
+        <img src="https://extintoresa2j.es/wp-content/uploads/Mantenimiento-de-Extintores_1-800x430.jpg" alt="Mantenimiento de extintores">
+        <h3>Mantenimiento e Inspección</h3>
+        <p>Revisiones trimestrales/anuales, pruebas hidrostáticas y retimbrado.</p>
+      </div>
+      <div class="card">
+        <img src="https://brisincol.com/wp-content/uploads/2021/06/Servicio-Tecnico-Especializado.jpg" alt="Servicio técnico especializado">
+        <h3>Asesoría y Venta</h3>
+        <p>Te ayudamos a elegir el extintor ideal para tus necesidades.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tipos de Extintores -->
+  <section id="tipos" style="background:linear-gradient(135deg,#0a0000,#000);">
+    <h2 class="section-title">Tipos de Extintores</h2>
+    <p style="text-align:center;font-size:1.6rem;max-width:900px;margin:0 auto 60px;">Conoce los principales tipos según la clase de fuego que combaten:</p>
+    <div class="types-grid">
+      <div class="card">
+        <img src="https://profuego.es/wp-content/uploads/2024/02/tipos-de-extintores-y-sus-usos-v2-scaled.webp" alt="Extintor polvo ABC">
+        <h3>Polvo Químico Seco (ABC)</h3>
+        <p>El más versátil: fuegos A (sólidos), B (líquidos) y C (gases). Ideal para hogares y oficinas.</p>
+      </div>
+      <div class="card">
+        <img src="https://nadinsa.com/wp-content/uploads/2019/08/extintor_tipos.png" alt="Extintor CO2">
+        <h3>CO₂ (Dióxido de Carbono)</h3>
+        <p>Perfecto para fuegos B y C eléctricos. No deja residuos, ideal para servidores y cocinas.</p>
+      </div>
+      <div class="card">
+        <img src="https://extinhouse.es/wp-content/uploads/2020/10/Clasificacion-de-extintores.png" alt="Extintor de agua y espuma">
+        <h3>Agua / Espuma</h3>
+        <p>Para fuegos clase A y algunos B. Enfría y sofoca el fuego.</p>
+      </div>
+      <div class="card">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_776625-MLV87573231082_072025-N.webp" alt="Extintor clásico rojo">
+        <h3>Especiales (Clase D y K)</h3>
+        <p>Para metales combustibles (D) o aceites de cocina (K). Uso industrial especializado.</p>
+      </div>
+    </div>
+  </section>
+
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
@@ -167,9 +225,9 @@
       retina_detect: true
     });
   </script>
-  <footer>
-    <p><a href="https://wa.me/573022771677">WhatsApp: +5573022771677</a> • 2025</p>
-    <p>© 2025 ZEROGRADO – All systems corrupted. Welcome to the void.</p>
+  <footer id="contacto">
+    <p><a href="https://wa.me/573007568085">WhatsApp: +573007568085</a> • 2025</p>
+    <p>© 2025 ZEROGRADO – Seguridad contra incendios. All systems protected.</p>
   </footer>
 </body>
 </html>
