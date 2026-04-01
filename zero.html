@@ -1,1 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="description" content="Recarga de Extintores – Mantenimiento, Revisión e Inspección Profesional. Seguridad que protege vidas y bienes."/>
+  <title>EXTI | Recarga de Extintores</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --red: #ff0000;
+      --darkred: #cc0000;
+      --orange: #ff4500;
+      --gray: #0a0a0a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--gray);color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3{font-family:'Orbitron',sans-serif;text-transform:uppercase;}
+
+    header{
+      position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:blur(12px);z-index:1000;
+      padding:15px 5%;display:flex;justify-content:space-between;align-items:center;
+      border-bottom:3px solid var(--red);box-shadow:0 0 20px var(--red);
+    }
+    .logo{
+      font-size:clamp(2rem,6vw,3rem);font-weight:900;
+      background:linear-gradient(90deg,var(--red),var(--orange),var(--red));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      letter-spacing:6px;
+      text-shadow:0 0 30px var(--red);
+    }
+    nav{display:flex;gap:20px;flex-wrap:wrap;}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;font-size:1.1rem;transition:0.4s;}
+    nav a:hover{color:var(--red);text-shadow:0 0 20px var(--red);transform:translateY(-3px);display:inline-block;}
+    .menu-toggle{display:none;font-size:2.2rem;color:var(--red);cursor:pointer;}
+
+    .whatsapp-fixed{
+      position:fixed;bottom:25px;right:25px;background:var(--red);color:white;
+      width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:2.8rem;box-shadow:0 0 40px var(--red);animation:pulse-red 2s infinite;
+    }
+
+    .hero{
+      min-height:100vh;background:linear-gradient(135deg,#000,#1a0000);
+      display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
+      padding:120px 20px 80px;overflow:hidden;
+    }
+    .hero h1{
+      font-size:clamp(4rem,14vw,9rem);font-weight:900;letter-spacing:12px;
+      background:linear-gradient(90deg,var(--red),var(--orange),#ff0000,var(--red));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-size:300%;animation:neonFlow 5s linear infinite, glitch 4s infinite;
+      text-shadow:0 0 20px var(--red),0 0 40px var(--orange),0 0 80px var(--red);
+    }
+    .hero p{
+      font-size:clamp(1.4rem,4vw,2.4rem);margin:30px 0;
+      color:#ff4500;text-shadow:0 0 20px #ff4500;animation:pulse 3s infinite;
+    }
+    .hero-buttons{margin-top:60px;display:flex;flex-direction:column;gap:25px;align-items:center;}
+    .btn-hero{
+      padding:18px 50px;font-size:1.8rem;font-weight:900;text-transform:uppercase;
+      border:4px solid var(--red);color:var(--red);background:transparent;
+      min-width:300px;border-radius:12px;transition:all 0.5s;box-shadow:0 0 30px var(--red);
+    }
+    .btn-hero:hover{
+      background:var(--red);color:#000;transform:scale(1.08);
+      box-shadow:0 0 60px var(--red), 0 0 100px var(--orange);
+    }
+    .btn-hero.whatsapp{background:var(--red);border-color:var(--red);color:#000;}
+
+    /* === SECCIÓN SERVICIOS === */
+    .services{
+      padding:100px 5% 120px;
+      background:linear-gradient(135deg, #0a0a0a, #330000);
+      position:relative;
+      overflow:hidden;
+    }
+    .services::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,transparent,var(--red),var(--orange),var(--red),transparent);
+    }
+    .section-title{
+      text-align:center;margin-bottom:70px;
+    }
+    .section-title h2{
+      font-size:clamp(2.8rem,8vw,4.5rem);font-weight:900;
+      background:linear-gradient(90deg,var(--red),var(--orange),#cc0000);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 0 40px var(--red);
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+      gap:25px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .service-card{
+      background:rgba(40,20,20,0.6);
+      border:2px solid rgba(255,0,0,0.2);
+      border-radius:15px;
+      padding:35px 25px;
+      transition:all 0.4s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .service-card::before{
+      content:'';position:absolute;top:-50%;left:-50%;width:60%;height:60%;
+      background:radial-gradient(circle, rgba(255,0,0,0.15) 0%, transparent 70%);
+      opacity:0;transition:all 0.5s;
+    }
+    .service-card:hover{
+      transform:translateY(-15px);
+      border-color:var(--red);
+      box-shadow:0 0 40px var(--red);
+    }
+    .service-card:hover::before{opacity:1;top:-20%;left:-20%;}
+
+    .service-card h3{
+      font-size:1.55rem;margin-bottom:15px;color:var(--red);
+      text-shadow:0 0 15px var(--red);
+    }
+    .service-card p{
+      color:#ccc;line-height:1.6;font-size:1.05rem;
+    }
+    .service-card .ver-mas{
+      display:inline-block;margin-top:20px;
+      color:var(--orange);font-weight:bold;text-decoration:none;
+      transition:0.3s;
+    }
+    .service-card .ver-mas:hover{
+      color:#ff0000;text-shadow:0 0 15px #ff0000;
+    }
+
+    #particles-js{position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;}
+    .scanline{
+      position:absolute;top:0;width:100%;height:4px;
+      background:linear-gradient(transparent,var(--red,0.4),transparent);
+      animation:scan 7s linear infinite;pointer-events:none;z-index:2;
+    }
+
+    footer{
+      background:#000;padding:50px 20px 70px;text-align:center;color:#555;
+      border-top:1px solid #222;position:relative;z-index:10;
+    }
+    footer a{color:var(--red);text-decoration:none;margin:0 15px;transition:0.3s;}
+    footer a:hover{color:var(--orange);text-shadow:0 0 15px var(--orange);}
+
+    @keyframes neonFlow{0%{background-position:0%}100%{background-position:300%}}
+    @keyframes glitch{
+      0%,100%{transform:translate(0);}
+      20%{transform:translate(-8px,8px);clip-path:polygon(0 0,100% 0,100% 20%,0 20%);}
+      40%{transform:translate(8px,-8px);clip-path:polygon(0 80%,100% 80%,100% 100%,0 100%);}
+      60%{transform:translate(-8px,0);}
+      80%{transform:translate(8px,8px);}
+    }
+    @keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+    @keyframes pulse{0%,100%{opacity:0.6}50%{opacity:1}}
+    @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(255,0,0,0.7)}70%{box-shadow:0 0 0 25px rgba(255,0,0,0)}}
+
+    @media(max-width:768px){
+      .menu-toggle{display:block;}
+      nav{display:none;flex-direction:column;width:100%;background:rgba(0,0,0,0.98);padding:30px 0;position:absolute;top:100%;left:0;}
+      nav.active{display:flex;}
+      nav a{font-size:1.6rem;margin:15px 0;}
+      .hero h1{letter-spacing:6px;}
+      .services{padding:80px 5% 90px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WhatsApp Flotante -->
+  <a href="https://wa.me/573189411374" class="whatsapp-fixed" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <header>
+    <div class="logo">EXTI</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+      ☰
+    </div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#acceso">Acceso</a>
+      <a href="#cyber">Clientes</a>
+      <a href="#drop">Tienda</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div id="particles-js"></div>
+    <div class="scanline"></div>
+
+    <div style="position:relative;z-index:10;">
+      <h1>RECARGA</h1>
+      <p>Extintores • Mantenimiento • Inspección<br>Seguridad que protege.</p>
+      <div class="hero-buttons">
+        <a href="#servicios" class="btn-hero">Ver Servicios</a>
+        <a href="https://wa.me/573189411374" target="_blank" class="btn-hero whatsapp">Whatsapp directo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN DE SERVICIOS ==================== -->
+  <section class="services" id="servicios">
+    <div class="section-title">
+      <h2>Nuestros Servicios</h2>
+      <p style="color:#aaa;margin-top:15px;font-size:1.3rem;">Recarga, mantenimiento, revisión e inspección profesional de extintores</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Recarga de Extintores</h3>
+        <p>Recarga completa de extintores de polvo químico seco, CO₂, agua, espuma y halon. Cumplimos con normas técnicas vigentes.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Mantenimiento Preventivo</h3>
+        <p>Revisión periódica, limpieza, cambio de válvulas, mangueras y sellos para garantizar el correcto funcionamiento.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Inspección y Certificación</h3>
+        <p>Inspección visual y funcional según normas NTC e internacionales. Entregamos certificado de inspección.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Prueba Hidrostática</h3>
+        <p>Prueba hidrostática obligatoria para cilindros de extintores con registro y certificación oficial.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Mantenimiento a Domicilio / Empresa</h3>
+        <p>Servicio de recarga y mantenimiento en sitio para industrias, edificios, oficinas y hogares.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Recarga de Extintores Móviles</h3>
+        <p>Atención inmediata con unidad móvil para recargas de emergencia en tu empresa o proyecto.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Capacitación en Uso de Extintores</h3>
+        <p>Entrenamiento teórico-práctico para el correcto uso de extintores y planes de emergencia.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Venta de Extintores Nuevos</h3>
+        <p>Extintores de todas las capacidades y tipos: ABC, BC, CO₂, agua, espuma y especiales.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Suministro de Refacciones</h3>
+        <p>Válvulas, mangueras, indicadores de presión, sellos de seguridad y accesorios originales.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Plan Anual de Mantenimiento</h3>
+        <p>Contrato de mantenimiento preventivo anual con visitas programadas y reporte técnico.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+
+      <div class="service-card">
+        <h3>Extintores Especiales</h3>
+        <p>Recarga y mantenimiento de extintores para cocina (Clase K), vehículos, barcos y ambientes corrosivos.</p>
+        <a href="#" class="ver-mas"></a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: window.innerWidth < 768 ? 60 : 120 },
+        color: { value: ["#ff0000", "#ff4500", "#cc0000", "#ff6666"] },
+        shape: { type: ["circle", "triangle", "star"] },
+        opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1 } },
+        size: { value: 4, random: true },
+        line_linked: {
+          enable: true,
+          distance: 180,
+          color: "#ff0000",
+          opacity: 0.3,
+          width: 1.5
+        },
+        move: {
+          enable: true,
+          speed: 3,
+          direction: "none",
+          random: true,
+          attract: { enable: true, rotateX: 600, rotateY: 1200 }
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 150 },
+          push: { particles_nb: 12 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+
+  <footer>
+    <p><a href="https://wa.me/573189411374">WhatsApp: +57 318 941 1374</a> • 2025</p>
+    <p>© 2025 EXTI – Recarga y Mantenimiento Profesional de Extintores. Protección garantizada.</p>
+  </footer>
+
+</body>
+</html>
